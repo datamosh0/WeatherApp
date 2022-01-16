@@ -79,7 +79,7 @@ const formatText = (string) => {
 };
 
 const getCoordinates = async (cityName, stateName) => {
-  let url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=e8a21afb07104497692691387984518e`;
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=e8a21afb07104497692691387984518e`;
   let apiResults = await apiCall(url);
   let sent = false;
 
