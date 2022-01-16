@@ -1,71 +1,24 @@
-const usStates = [
-  { name: "Alabama", abbreviation: "AL" },
-  { name: "Alaska", abbreviation: "AK" },
-  { name: "American Samoa", abbreviation: "AS" },
-  { name: "Arizona", abbreviation: "AZ" },
-  { name: "Arkansas", abbreviation: "AR" },
-  { name: "California", abbreviation: "CA" },
-  { name: "Colorado", abbreviation: "CO" },
-  { name: "Connecticut", abbreviation: "CT" },
-  { name: "Delaware", abbreviation: "DE" },
-  { name: "District of Columbia", abbreviation: "DC" },
-  { name: "Federated States of Micronesia", abbreviation: "FM" },
-  { name: "Flordia", abbreviation: "FL" },
-  { name: "Georgia", abbreviation: "GA" },
-  { name: "Guam", abbreviation: "GU" },
-  { name: "Hawaii", abbreviation: "HI" },
-  { name: "Idaho", abbreviation: "ID" },
-  { name: "Illinois", abbreviation: "IL" },
-  { name: "Indiana", abbreviation: "IN" },
-  { name: "Iowa", abbreviation: "IA" },
-  { name: "Kansas", abbreviation: "KS" },
-  { name: "Kentucky", abbreviation: "KY" },
-  { name: "Louisiana", abbreviation: "LA" },
-  { name: "Maine", abbreviation: "ME" },
-  { name: "Marshall Islands", abbreviation: "MH" },
-  { name: "Maryland", abbreviation: "MD" },
-  { name: "Massachusetts", abbreviation: "MA" },
-  { name: "Michigan", abbreviation: "MI" },
-  { name: "Minnesota", abbreviation: "MN" },
-  { name: "Mississippi", abbreviation: "MS" },
-  { name: "Missouri", abbreviation: "MO" },
-  { name: "Montana", abbreviation: "MT" },
-  { name: "Nebraska", abbreviation: "NE" },
-  { name: "Nevada", abbreviation: "NV" },
-  { name: "New Hampshire", abbreviation: "NH" },
-  { name: "New Jersey", abbreviation: "NJ" },
-  { name: "New Mexico", abbreviation: "NM" },
-  { name: "New York", abbreviation: "NY" },
-  { name: "North Carolina", abbreviation: "NC" },
-  { name: "North Dakota", abbreviation: "ND" },
-  { name: "Northern Marina Islands", abbreviation: "MP" },
-  { name: "Ohio", abbreviation: "OH" },
-  { name: "Oklahoma", abbreviation: "OK" },
-  { name: "Oregon", abbreviation: "OR" },
-  { name: "Palau", abbreviation: "PW" },
-  { name: "Pennsylvania", abbreviation: "PA" },
-  { name: "Puerto Rico", abbreviation: "PR" },
-  { name: "Rhode Island", abbreviation: "RI" },
-  { name: "South Carolina", abbreviation: "SC" },
-  { name: "South Dakota", abbreviation: "SD" },
-  { name: "Tennesse", abbreviation: "TN" },
-  { name: "Texas", abbreviation: "TX" },
-  { name: "Utah", abbreviation: "UT" },
-  { name: "Vermont", abbreviation: "VT" },
-  { name: "Virgin Islands", abbreviation: "VI" },
-  { name: "Virginia", abbreviation: "VA" },
-  { name: "Washington", abbreviation: "WA" },
-  { name: "West Virgina", abbreviation: "WV" },
-  { name: "Wisconsin", abbreviation: "WI" },
-  { name: "Wyoming", abbreviation: "WY" },
-];
-
+import usStates from "./statesList.js";
 import WEATHER_API_KEY from "./apikey.js";
+//input dom elements
 const enter = document.querySelector(".enter");
 const input = document.querySelector(".input");
 const input2 = document.querySelector(".input2");
-const API_KEY = WEATHER_API_KEY;
 
+//write data dom elements
+const descriptionEl = document.querySelector(".description");
+const cityNameEl = document.querySelector(".cityName");
+const dateEl = document.querySelector(".date");
+const timeEl = document.querySelector(".time");
+const temperatureEl = document.querySelector(".temperature");
+const detailEl1 = document.querySelector(".detail1");
+const detailEl2 = document.querySelector(".detail2");
+const detailEl3 = document.querySelector(".detail3");
+const detailEl4 = document.querySelector(".detail4");
+const icon = document.querySelector(".main__icon");
+const currentDisplayEl = document.querySelector(".switchDisplay");
+
+//generic fetch function
 const apiCall = async (url) => {
   let response = await fetch(url);
   let data = await response.json();
@@ -78,8 +31,9 @@ const formatText = (string) => {
   return formattedString;
 };
 
+//passes city name and returns latitude and longitude
 const getCoordinates = async (cityName, stateName) => {
-  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=e8a21afb07104497692691387984518e`;
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${WEATHER_API_KEY}`;
   let apiResults = await apiCall(url);
   let sent = false;
 
@@ -97,6 +51,7 @@ const getCoordinates = async (cityName, stateName) => {
   }
 };
 
+//handles input event
 const inputFunc = (e) => {
   let cityName = input.value.trim();
   let stateName = input2.value.trim();
@@ -120,20 +75,9 @@ input2.addEventListener("keyup", function (e) {
 });
 enter.addEventListener("click", inputFunc);
 
-const descriptionEl = document.querySelector(".description");
-const cityNameEl = document.querySelector(".cityName");
-const dateEl = document.querySelector(".date");
-const timeEl = document.querySelector(".time");
-const temperatureEl = document.querySelector(".temperature");
-const detailEl1 = document.querySelector(".detail1");
-const detailEl2 = document.querySelector(".detail2");
-const detailEl3 = document.querySelector(".detail3");
-const detailEl4 = document.querySelector(".detail4");
-const icon = document.querySelector(".main__icon");
-const currentDisplayEl = document.querySelector(".switchDisplay");
-
+//main api call
 const getWeather = async (lat, lon) => {
-  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial&exclude=minutely,hourly`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial&exclude=minutely,hourly`;
   let data = await apiCall(url);
   let description = data.daily[0].weather[0].description;
   const finalDescription = description.replace(
@@ -156,6 +100,7 @@ const getWeather = async (lat, lon) => {
   detailEl4.textContent = windSpeed + "mph";
   icon.src = `icons/${iconId}.png`;
 
+  //pass timezone to recieve local time
   let timezoneVar = data.timezone;
   let wordDay = new Date().toLocaleString("en-US", {
     timeZone: `${timezoneVar}`,
@@ -177,6 +122,7 @@ const getWeather = async (lat, lon) => {
   dateEl.textContent = date;
   updateClock(timezoneVar);
 
+  //display forecast
   for (let i = 1; i < 8; i++) {
     let forecastDay = new Date();
     forecastDay.setDate(forecastDay.getDate() + i);
@@ -200,14 +146,17 @@ const getWeather = async (lat, lon) => {
     ).src = `icons/${forecastIconId}.png`;
   }
 
-  let cityUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
+  //seperate api call to get the name of city
+  let cityUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial`;
   let cityData = await apiCall(cityUrl);
   let cityName = cityData.city.name;
   cityNameEl.textContent = cityName;
+
   currentDisplayEl.id = "F";
   currentDisplayEl.textContent = "Display °C";
 };
 
+//raised state clock function
 let interval = setInterval(function () {}, 1000);
 const updateClock = (timezoneVar) => {
   interval = setInterval(() => {
@@ -219,6 +168,7 @@ const updateClock = (timezoneVar) => {
   }, 1000);
 };
 
+//toggle between imperial and metric
 function fToC(fahrenheit) {
   let fToCel = (fahrenheit - 31.9) / 1.8;
   return fToCel;
@@ -253,13 +203,11 @@ const switchDisplay = () => {
           .textContent.toString()
           .split("°")[0]
       );
-
       document.getElementById(`forecast__temp${i}`).textContent =
         forecast__temp.toString().split(".")[0] + "°C";
       document.getElementById(`forecast__low${i}`).textContent =
         forecast__low.toString().split(".")[0] + "°C";
     }
-
     currentDisplayEl.id = "C";
     currentDisplayEl.textContent = "Display °F";
   } else {
@@ -292,22 +240,19 @@ const switchDisplay = () => {
     currentDisplayEl.textContent = "Display °C";
   }
 };
-
 currentDisplayEl.addEventListener("click", switchDisplay);
 
+//get user's location else display seattle's weather
 let options = {
   enableHighAccuracy: true,
   timeout: 1000,
   maximumAge: 0,
 };
-
 function success(pos) {
   let crd = pos.coords;
   getWeather(crd.latitude, crd.longitude);
 }
-
 function error(err) {
   getWeather(47.6062, -122.3321);
 }
-
 navigator.geolocation.getCurrentPosition(success, error, options);
