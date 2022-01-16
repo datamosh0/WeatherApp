@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icons/10d.png" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <div class="text">
+          <div class="description">Moderate Rain</div>
+          <div class="cityName">Seattle</div>
+          <div class="date">Wednesday, 12 Jan '22</div>
+          <div class="time">4:03:33</div>
+          <div class="temperature">56°F</div>
+          <img src="icons/10d.png" alt="" class="main__icon" />
+        </div>
+
+        <span class="input__span">
+          <input type="text" placeholder="City" class="input" required />
+          <input
+            type="text"
+            placeholder="State or Country"
+            class="input input2"
+          />
+          <button class="enter">Enter</button>
+        </span>
+      </div>
+
+      <div class="weather__details">
+        <div class="details__contain">
+          <img src="images/image1.svg" alt="" class="icon" />
+          <div>
+            <div class="detail__title">Feels Like</div>
+            <div class="detail__content detail1">55°F</div>
+          </div>
+        </div>
+
+        <div class="details__contain">
+          <img src="images/image.svg" alt="" class="icon" />
+          <div>
+            <div class="detail__title">Humidity</div>
+            <div class="detail__content detail2">87%</div>
+          </div>
+        </div>
+
+        <div class="details__contain">
+          <img src="images/image2.svg" alt="" class="icon" />
+          <div>
+            <div class="detail__title">Chance of Rain</div>
+            <div class="detail__content detail3">8.73%</div>
+          </div>
+        </div>
+
+        <div class="details__contain">
+          <img src="images/image3.svg" alt="" class="icon" />
+          <div>
+            <div class="detail__title">Wind Speed</div>
+            <div class="detail__content detail4">10.46mph</div>
+          </div>
+        </div>
+
+        <div class="switchDisplay" id="F">Display °C</div>
+      </div>
+    </div>
+
+    <div class="forecast__container">
+      <div class="forecast">
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day1">Thursday</div>
+          <div class="contain1">
+            <div class="container2">
+              <div class="forecast__temp" id="forecast__temp1">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low1">55°F</div>
+            </div>
+            <img src="icons/01d.png" alt="" id="forecast__icon1" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day2">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp2">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low2">55°F</div>
+            </div>
+            <img src="icons/01d.png" alt="" id="forecast__icon2" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day3">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp3">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low3">55°F</div>
+            </div>
+            <img src="icons/01d.png" alt="" id="forecast__icon3" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day4">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp4">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low4">55°F</div>
+            </div>
+            <img src="icons/01d.png" alt="" id="forecast__icon4" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day5">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp5">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low5">55°F</div>
+            </div>
+
+            <img src="icons/01d.png" alt="" id="forecast__icon5" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day6">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp6">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low6">55°F</div>
+            </div>
+
+            <img src="icons/01d.png" alt="" id="forecast__icon6" />
+          </div>
+        </div>
+        <div class="forecast__element">
+          <div class="forecast__day" id="forecast__day7">Thursday</div>
+          <div class="contain1">
+            <div class="contain2">
+              <div class="forecast__temp" id="forecast__temp7">56°F</div>
+              <div class="forecast__feels__like" id="forecast__low7">55°F</div>
+            </div>
+
+            <img src="icons/01d.png" alt="" id="forecast__icon7" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
