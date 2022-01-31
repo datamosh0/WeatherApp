@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 13.5px;
+}
+body {
+  background-image: url("images/bg.045edac4468e3ab87a833664e263f543.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 100vh;
+  font-family: "Roboto", monospace;
+}
+.input {
+  width: 9rem;
+  height: 2rem;
+  text-align: center;
+  border-radius: 0.4em;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+img {
+  background: transparent;
+  width: 2.5rem;
+}
+.weather__details {
+  display: flex;
+  flex-direction: column;
+}
+.switchDisplay {
+  cursor: pointer;
+}
+
+.enter {
+  height: 2rem;
+  width: 4em;
+  border-radius: 0.4em;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 3rem;
+  color: white;
+}
+
+.description {
+  font-size: 2.6rem;
+}
+.cityName {
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
+}
+
+.date {
+  margin-top: 1.2rem;
+}
+
+.time {
+  margin-bottom: 0.5rem;
+}
+
+.temperature {
+  font-weight: bold;
+  font-size: 3.2rem;
+}
+
+.main__icon {
+  width: 6rem;
+}
+
+.details__contain {
+  display: flex;
+  align-items: center;
+}
+.detail__title {
+  font-size: 0.9rem;
+}
+.detail__content {
+  font-size: 1.4rem;
+}
+
+.forecast__container {
+  display: flex;
+  justify-content: center;
+}
+
+.forecast {
+  width: 70%;
+}
+
+@media screen and (min-width: 1024px) {
+  * {
+    font-size: 16px;
+  }
+
+  .forecast {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 85%;
+  }
+
+  .forecast__element {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.forecast__element {
+  display: flex;
+  justify-content: space-evenly;
+}
+.contain1 {
+  display: flex;
+}
+
+.forecast__day {
+  font-size: 2rem;
+}
+.forecast__temp {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.forecast__feels__like {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 540px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  * {
+    font-size: 10.8px;
+  }
+}

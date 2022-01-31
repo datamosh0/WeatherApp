@@ -1,20 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-:root {
-  --color-one: #5d5c61;
-  --color-two: #379683;
-  --color-three: #7395ae;
-  --color-four: #557a95;
-  --color-five: #b1a296;
-}
+@import "config";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 13.5px;
-}
 body {
-  background-image: url("images/bg.045edac4468e3ab87a833664e263f543.jpg");
+  background-image: url("../images/bg.045edac4468e3ab87a833664e263f543.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +22,7 @@ body {
 
 img {
   background: transparent;
-  width: 2.5rem;
+  width: 4rem;
 }
 .weather__details {
   display: flex;
@@ -58,7 +45,6 @@ img {
   display: flex;
   justify-content: space-between;
   margin: 2rem 3rem;
-  color: white;
 }
 
 .description {
@@ -83,7 +69,7 @@ img {
 }
 
 .main__icon {
-  width: 6rem;
+  width: 8rem;
 }
 
 .details__contain {
@@ -103,7 +89,6 @@ img {
 }
 
 .forecast {
-  color: white;
   width: 70%;
 }
 
@@ -147,7 +132,6 @@ img {
   body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
   * {
     font-size: 10.8px;
