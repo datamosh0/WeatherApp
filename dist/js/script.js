@@ -1,5 +1,6 @@
 import usStates from "./statesList.js";
-//input dom elements
+
+const WEATHER_API_KEY = e8a21afb07104497692691387984518e;
 const enter = document.querySelector(".enter");
 const input = document.querySelector(".input");
 const input2 = document.querySelector(".input2");
@@ -32,7 +33,7 @@ const formatText = (string) => {
 
 //passes city name and returns latitude and longitude
 const getCoordinates = async (cityName, stateName) => {
-  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${process.env.WEATHER_API_KEY}`;
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${WEATHER_API_KEY}`;
   let apiResults = await apiCall(url);
   let sent = false;
 
@@ -76,7 +77,7 @@ enter.addEventListener("click", inputFunc);
 
 //main api call
 const getWeather = async (lat, lon) => {
-  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=imperial&exclude=minutely,hourly`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial&exclude=minutely,hourly`;
   let data = await apiCall(url);
   let description = data.daily[0].weather[0].description;
   const finalDescription = description.replace(
@@ -146,7 +147,7 @@ const getWeather = async (lat, lon) => {
   }
 
   //seperate api call to get the name of city
-  let cityUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=imperial`;
+  let cityUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=imperial`;
   let cityData = await apiCall(cityUrl);
   let cityName = cityData.city.name;
   cityNameEl.textContent = cityName;
