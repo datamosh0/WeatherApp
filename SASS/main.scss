@@ -1,7 +1,13 @@
-@import "config";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: white;
+}
 
 body {
-  background-image: url("../images/bg.045edac4468e3ab87a833664e263f543.jpg");
+  background-image: url("/dist/images/bg.045edac4468e3ab87a833664e263f543.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,6 +39,7 @@ img {
 }
 
 .enter {
+  background: #444;
   height: 2rem;
   width: 4em;
   border-radius: 0.4em;
@@ -81,6 +88,9 @@ img {
 }
 .detail__content {
   font-size: 1.4rem;
+}
+.details__contain {
+  margin-bottom: 1rem;
 }
 
 .forecast__container {
