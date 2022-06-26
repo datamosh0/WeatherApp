@@ -33,7 +33,7 @@ const formatText = (string) => {
 
 //passes city name and returns latitude and longitude
 const getCoordinates = async (cityName, stateName) => {
-  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${WEATHER_API_KEY}`;
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${process.env.WEATHER_API_KEY}`;
   let apiResults = await apiCall(url);
   let sent = false;
 
