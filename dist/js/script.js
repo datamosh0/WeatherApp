@@ -1,6 +1,6 @@
 import usStates from "./statesList.js";
 
-const WEATHER_API_KEY = e8a21afb07104497692691387984518e;
+const WEATHER_API_KEY = "e8a21afb07104497692691387984518e";
 const enter = document.querySelector(".enter");
 const input = document.querySelector(".input");
 const input2 = document.querySelector(".input2");
@@ -98,7 +98,7 @@ const getWeather = async (lat, lon) => {
   detailEl2.textContent = humidity + "%";
   detailEl3.textContent = chanceOfRain + "%";
   detailEl4.textContent = windSpeed + "mph";
-  icon.src = `icons/${iconId}.png`;
+  icon.src = `dist/icons/${iconId}.png`;
 
   //pass timezone to recieve local time
   let timezoneVar = data.timezone;
@@ -143,7 +143,7 @@ const getWeather = async (lat, lon) => {
       forecastLow.toString().slice(0, 2) + "°F";
     document.getElementById(
       `forecast__icon${i}`
-    ).src = `icons/${forecastIconId}.png`;
+    ).src = `dist/icons/${forecastIconId}.png`;
   }
 
   //seperate api call to get the name of city
