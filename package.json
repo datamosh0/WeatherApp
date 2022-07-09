@@ -1,0 +1,38 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "- Displays user's location by default.\r - Displays local time\r - Unique weather symbols for each forecast description.\r - Displays data in metric or imperial units.",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datamosh0/WeatherApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datamosh0/WeatherApp/issues"
+  },
+  "tasks": [
+    {
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "homepage": "https://github.com/datamosh0/WeatherApp#readme",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}

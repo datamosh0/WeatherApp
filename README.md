@@ -5,6 +5,12 @@
 - Unique weather symbols for each forecast description.
 - Displays data in metric or imperial units.
 
-<a href="https://liveforecast.netlify.app/" target="_blank">Live Demo</a>
+## technologies
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/552885e1-41e1-48ce-9bdf-87b221eb86cf/deploy-status)](https://app.netlify.com/sites/liveforecast/deploys)
+-typescript
+-scss
+-apis
+
+run tsc src/script.ts to compile to js
+
+[live demo](https://liveforecast.netlify.app/)
